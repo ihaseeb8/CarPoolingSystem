@@ -55,7 +55,7 @@
                </font>
             </Text>
             <PasswordField layoutX="122.0" layoutY="300.0" prefHeight="34.0" prefWidth="226.0" promptText="*****************" style="-fx-background-color: #FF5252; -fx-background-radius: 50;" />
-            <Button fx:id="LogInButton" layoutX="169.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#LoginButtonClicked" onMouseEntered="#onLoginButtonMouseMoved" onMouseExited="#onLoginButtonMouseRemoved" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #ff725e;" text="Log In">
+            <Button fx:id="LogInButton" layoutX="169.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#LoginButtonClicked" onMouseEntered="#onLoginButtonMouseMoved" onMouseExited="#onLoginButtonMouseRemoved" onMousePressed="#LoginButtonPressed" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: #ff725e;" text="Log In">
                <font>
                   <Font name="Segoe Script" size="17.0" />
                </font>
