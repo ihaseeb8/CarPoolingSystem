@@ -39,7 +39,6 @@ public class LoginViewController {
     void onLoginButtonMouseRemoved(MouseEvent event) {
         LogInButton.setStyle("-fx-background-color: #ff725e");
         LogInButton.setTextFill(Paint.valueOf("#000000"));
-
     }
 
     @FXML

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aproj.PassengerProfileViewController">
+   <center>
+      <AnchorPane prefHeight="518.0" prefWidth="730.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="615.0" fitWidth="855.0" pickOnBounds="true">
+               <image>
+                  <Image url="@RBB.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="531.0" fitWidth="537.0" layoutX="162.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@passengerProfilePic.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="ridesButton" layoutX="508.0" layoutY="40.0" mnemonicParsing="false" onAction="#ridesButtonPressed" opacity="0.0" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100;" />
+            <Button fx:id="messageButton" layoutX="568.0" layoutY="175.0" mnemonicParsing="false" onAction="#messageButtonPressed" opacity="0.0" prefHeight="86.0" prefWidth="88.0" style="-fx-background-radius: 100;" />
+            <Button fx:id="paymentButton" layoutX="256.0" layoutY="308.0" mnemonicParsing="false" onAction="#paymentButtonPressed" opacity="0.0" prefHeight="86.0" prefWidth="85.0" style="-fx-background-radius: 100;" />
+            <Button fx:id="profileButton" layoutX="193.0" layoutY="170.0" mnemonicParsing="false" onAction="#profileButtonPressed" opacity="0.0" prefHeight="93.0" prefWidth="95.0" style="-fx-background-radius: 100;" />
+            <Button fx:id="BackButton" layoutX="372.0" layoutY="537.0" mnemonicParsing="false" onMouseEntered="#onBackButtonMouseMoved" onMouseExited="#onBackButtonMouseRemoved" onMousePressed="#BackButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Back">
+               <font>
+                  <Font name="Segoe Script" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

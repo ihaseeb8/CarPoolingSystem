@@ -9,6 +9,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
+
+
 import java.io.IOException;
 
 public class HelloController {
@@ -23,6 +25,10 @@ public class HelloController {
     void onLoginButtonMouseMoved(MouseEvent event) {
         LogInButton.setStyle("-fx-background-color: #F44336");
         LogInButton.setTextFill(Paint.valueOf("#FFFFFF"));
+
+        Ride ride = new Ride("das","dasdsa",123,1234,33);
+
+
     }
 
     @FXML
@@ -46,6 +52,9 @@ public class HelloController {
 
     @FXML
     void LoginButtonClicked(MouseEvent event) throws IOException {
+
+
+
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
