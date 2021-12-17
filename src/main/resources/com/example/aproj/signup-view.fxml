@@ -29,6 +29,11 @@
                         <Image url="@SignUp.png" />
                     </image>
                 </ImageView>
+            <Button fx:id="BackButton" layoutX="156.0" layoutY="522.0" mnemonicParsing="false" onMouseEntered="#onBackButtonMouseMoved" onMouseExited="#onBackButtonMouseRemoved" onMousePressed="#BackButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Back">
+               <font>
+                  <Font name="Segoe Script" size="17.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </left>

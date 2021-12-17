@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-
+import org.hibernate.cfg.Configuration;
 
 
 import java.io.IOException;
@@ -52,9 +52,6 @@ public class HelloController {
 
     @FXML
     void LoginButtonClicked(MouseEvent event) throws IOException {
-
-
-
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

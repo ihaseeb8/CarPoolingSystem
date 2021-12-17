@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,8 +20,38 @@ public class ProfileViewController {
     private Button PassengerProfileButton;
 
     @FXML
-    void DriverProfileButtonClicked(MouseEvent event) {
+    private Button BackButton;
 
+    @FXML
+    void BackButtonPressed(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void onBackButtonMouseMoved(MouseEvent event) {
+        BackButton.setStyle("-fx-background-color: #F44336");
+        BackButton.setTextFill(Paint.valueOf("#FFFFFF"));
+    }
+
+    @FXML
+    void onBackButtonMouseRemoved(MouseEvent event) {
+        BackButton.setStyle("-fx-background-color: #ff725e");
+        BackButton.setTextFill(Paint.valueOf("#000000"));
+    }
+
+    @FXML
+    void DriverProfileButtonClicked(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-profile-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

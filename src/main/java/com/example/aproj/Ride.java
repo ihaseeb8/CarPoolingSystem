@@ -1,7 +1,9 @@
 package com.example.aproj;
 
 
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
 
 public class Ride {
     String Dropoff;
@@ -19,6 +21,7 @@ public class Ride {
         DriverID = driverID;
         CarID = carID;
         this.fare = fare;
+
 
     }
 

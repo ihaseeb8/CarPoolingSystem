@@ -11,29 +11,22 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PassengerProfileViewController {
-
-    @FXML
-    private Button AvailableRidesButton;
+public class DriverProfileViewController {
 
     @FXML
     private Button BackButton;
+
+    @FXML
+    private Button FinishRideButton;
+
+    @FXML
+    private Button MyVehiclesButton;
 
     @FXML
     private Button ProfileButton;
 
     @FXML
     private Button RideHistoryButton;
-
-    @FXML
-    void AvailableRidesButtonPressed(MouseEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("passenger-ride-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        //Node node = (Node) event.getSource();
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
 
     @FXML
     void BackButtonPressed(MouseEvent event) throws IOException {
@@ -46,30 +39,18 @@ public class PassengerProfileViewController {
     }
 
     @FXML
-    void ProfileButtonPressed(MouseEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("passenger-details-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        //Node node = (Node) event.getSource();
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+    void FinishRideButtonPressed(MouseEvent event) {
+
+    }
+
+    @FXML
+    void ProfileButtonPressed(MouseEvent event) {
+
     }
 
     @FXML
     void RideHistoryButtonPressed(MouseEvent event) {
 
-    }
-
-    @FXML
-    void onAvailableRidesButtonMouseMoved(MouseEvent event) {
-        AvailableRidesButton.setStyle("-fx-background-color: #F44336");
-        AvailableRidesButton.setTextFill(Paint.valueOf("#FFFFFF"));
-    }
-
-    @FXML
-    void onAvailableRidesButtonMouseRemoved(MouseEvent event) {
-        AvailableRidesButton.setStyle("-fx-background-color: #ff725e");
-        AvailableRidesButton.setTextFill(Paint.valueOf("#000000"));
     }
 
     @FXML
@@ -82,6 +63,35 @@ public class PassengerProfileViewController {
     void onBackButtonMouseRemoved(MouseEvent event) {
         BackButton.setStyle("-fx-background-color: #ff725e");
         BackButton.setTextFill(Paint.valueOf("#000000"));
+    }
+
+    @FXML
+    void onFinishRideButtonMouseMoved(MouseEvent event) {
+        FinishRideButton.setStyle("-fx-background-color: #F44336");
+        FinishRideButton.setTextFill(Paint.valueOf("#FFFFFF"));
+    }
+
+    @FXML
+    void onFinishRideButtonMouseRemoved(MouseEvent event) {
+        FinishRideButton.setStyle("-fx-background-color: #ff725e");
+        FinishRideButton.setTextFill(Paint.valueOf("#000000"));
+    }
+
+    @FXML
+    void onMyVehiclesButtonMouseMoved(MouseEvent event) {
+        MyVehiclesButton.setStyle("-fx-background-color: #F44336");
+        MyVehiclesButton.setTextFill(Paint.valueOf("#FFFFFF"));
+    }
+
+    @FXML
+    void onMyVehiclesButtonMouseRemoved(MouseEvent event) {
+        MyVehiclesButton.setStyle("-fx-background-color: #ff725e");
+        MyVehiclesButton.setTextFill(Paint.valueOf("#000000"));
+    }
+
+    @FXML
+    void onMyVehiclesButtonPressed(MouseEvent event) {
+
     }
 
     @FXML
