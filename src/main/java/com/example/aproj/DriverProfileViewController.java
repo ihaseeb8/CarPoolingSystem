@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +28,30 @@ public class DriverProfileViewController {
 
     @FXML
     private Button RideHistoryButton;
+
+    @FXML
+    private Button RegisterRideButton;
+
+    @FXML
+    private Text promptText;
+
+    @FXML
+    void RegisterRideButtonPressed(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onRegisterRideButtonMouseMoved(MouseEvent event) {
+        RegisterRideButton.setStyle("-fx-background-color: #F44336");
+        RegisterRideButton.setTextFill(Paint.valueOf("#FFFFFF"));
+    }
+
+    @FXML
+    void onRegisterRideButtonMouseRemoved(MouseEvent event) {
+        RegisterRideButton.setStyle("-fx-background-color: #ff725e");
+        RegisterRideButton.setTextFill(Paint.valueOf("#000000"));
+    }
+
 
     @FXML
     void BackButtonPressed(MouseEvent event) throws IOException {

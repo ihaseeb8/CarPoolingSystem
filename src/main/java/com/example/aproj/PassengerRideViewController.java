@@ -28,7 +28,7 @@ public class PassengerRideViewController implements Initializable {
     private Button BookButton;
 
     @FXML
-    private TableColumn<Ride , Integer> CarNoCol;
+    private TableColumn<Ride, Integer> CarNoCol;
 
     @FXML
     private TableColumn<Ride, Integer> DriverNameCol;
@@ -89,7 +89,7 @@ public class PassengerRideViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        ObservableList<Ride> data = FXCollections.observableArrayList(
+      /*  ObservableList<Ride> data = FXCollections.observableArrayList(
                 new Ride("F7", "F11", 9988,7732 , 456 ),
                 new Ride("F7", "F11", 9988,7742 , 456 ),
                 new Ride("F7", "F11", 9988,7732 , 456 ),
@@ -104,7 +104,7 @@ public class PassengerRideViewController implements Initializable {
         //add your data to the table here.
         //tbData.setItems(studentsModels);
 
-        PassengerRideInfoTable.setItems(data);
+        PassengerRideInfoTable.setItems(data);*/
 
     }
 }

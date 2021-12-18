@@ -1,61 +1,73 @@
 package com.example.aproj;
 
 
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-
 public class Ride {
-    String Dropoff;
-    String Pickup;
-    int DriverID;
-    int CarID;
+
+    int rideId;
+    String dropOff;
+    String pickUp;
+    int driverID;
+    int passengerId;
+    int vehicleId;
     double fare;
 
-
-
-    public Ride(String dropoff, String pickup, int driverID, int carID, double fare) {
-
-        Dropoff = dropoff;
-        Pickup = pickup;
-        DriverID = driverID;
-        CarID = carID;
+    public Ride(int rideId, String dropOff, String pickUp, int driverID, int passengerId, int carID, double fare) {
+        this.rideId = rideId;
+        this.dropOff = dropOff;
+        this.pickUp = pickUp;
+        this.driverID = driverID;
+        this.passengerId = passengerId;
+        this.vehicleId = carID;
         this.fare = fare;
-
-
     }
 
 
-    public String getDropoff() {
-        return Dropoff;
+    public int getRideId() {
+        return rideId;
     }
 
-    public void setDropoff(String dropoff) {
-        Dropoff = dropoff;
+    public void setRideId(int rideId) {
+        this.rideId = rideId;
     }
 
-    public String getPickup() {
-        return Pickup;
+    public String getDropOff() {
+        return dropOff;
     }
 
-    public void setPickup(String pickup) {
-        Pickup = pickup;
+    public void setDropOff(String dropOff) {
+        this.dropOff = dropOff;
+    }
+
+    public String getPickUp() {
+        return pickUp;
+    }
+
+    public void setPickUp(String pickUp) {
+        this.pickUp = pickUp;
     }
 
     public int getDriverID() {
-        return DriverID;
+        return driverID;
     }
 
     public void setDriverID(int driverID) {
-        DriverID = driverID;
+        this.driverID = driverID;
     }
 
-    public int getCarID() {
-        return CarID;
+    public int getPassengerId() {
+        return passengerId;
     }
 
-    public void setCarID(int carID) {
-        CarID = carID;
+    public void setPassengerId(int passengerId) {
+        this.passengerId = passengerId;
+    }
+
+    public int getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(int vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
     public double getFare() {

@@ -1,5 +1,6 @@
 package com.example.aproj;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,9 +10,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+import static java.lang.Integer.parseInt;
 
 public class SignUpViewController {
 
@@ -38,6 +42,10 @@ public class SignUpViewController {
 
     @FXML
     private Button BackButton;
+
+    @FXML
+    private Text signupPrompt;
+
 
     @FXML
     void BackButtonPressed(MouseEvent event) throws IOException {
@@ -75,6 +83,82 @@ public class SignUpViewController {
     }
     @FXML
     void SignUpButtonClicked(MouseEvent event) {
+
+        if(NameField.getText().isEmpty())
+        {
+            signupPrompt.setText("Name cannot be empty!");
+        }
+        else if(EmailField.getText().isEmpty())
+        {
+            signupPrompt.setText("Email cannot be empty!");
+        }
+        else if(CnicField.getText().isEmpty())
+        {
+            signupPrompt.setText("Cnic cannot be empty!");
+        }
+
+        String cnic = CnicField.getText();
+
+        try {
+            int cnicInt = parseInt(cnic);
+
+            if (cnicInt < 100000000 || cnicInt > 199999999) {
+                signupPrompt.setText("Invalid CNIC!");
+            }
+            else
+            {
+                DBConnection dbConnection = DBConnection.getDBConnection();
+
+                if(dbConnection.searchUser(cnic) == true)
+                {
+                    signupPrompt.setText("Cnic Already Registered!");
+                }
+                else
+                {
+
+                    if(PhoneNoField.getText().isEmpty())
+                    {
+                        signupPrompt.setText("Phone No Is Required!");
+                    }
+                    else{
+
+                    User user = User.getUser();
+                    user.setCnic(cnicInt);
+
+                    if(PassField.getText().isEmpty())
+                    {
+                        signupPrompt.setText("Password Cannot Be Empty!");
+                    }
+                    else
+                    {
+                        if (PassField.getText().equals(ConfirmPassField.getText())) {
+
+                            signupPrompt.setText("You account has been registered");
+                            dbConnection.insertUser(NameField.getText(),EmailField.getText(),Integer.parseInt(CnicField.getText()),PhoneNoField.getText(),PassField.getText());
+
+                        }
+                        else
+                        {
+
+                            signupPrompt.setText("Passwords are not matching!");
+
+                            System.out.println(PassField.getText());
+
+                            System.out.println(ConfirmPassField.getText());
+                        }
+                    }
+
+
+
+                }}
+
+            }
+
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getCause());
+        }
 
     }
 }

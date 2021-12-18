@@ -46,6 +46,10 @@ public class ProfileViewController {
 
     @FXML
     void DriverProfileButtonClicked(MouseEvent event) throws IOException {
+
+        DriverProfile.getDriverProfile().setDriverCnic(User.getUser().getCnic());
+        User.getUser().setDriverProfile(DriverProfile.getDriverProfile());
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-profile-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         //Node node = (Node) event.getSource();

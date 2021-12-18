@@ -5,13 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+import static java.lang.Integer.parseInt;
 
 public class LoginViewController {
 
@@ -22,10 +26,14 @@ public class LoginViewController {
     private Button LogInButton;
 
     @FXML
-    private AnchorPane PasswordField;
+    private PasswordField passwordField;
 
     @FXML
     private Button BackButton;
+
+
+    @FXML
+    private Text promptText;
 
     @FXML
     void BackButtonPressed(MouseEvent event) throws IOException {
@@ -52,6 +60,8 @@ public class LoginViewController {
     @FXML
     void LoginButtonClicked(MouseEvent event) {
 
+
+
     }
 
     @FXML
@@ -69,12 +79,48 @@ public class LoginViewController {
     @FXML
     void LoginButtonPressed(MouseEvent event) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profiles-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        //Node node = (Node) event.getSource();
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        if(!CnicField.getText().isEmpty()){
 
+        String cnic = CnicField.getText();
+        int cnicInt = parseInt(cnic);
+        if (cnicInt < 100000000 || cnicInt > 199999999) {
+            promptText.setText("Invalid CNIC!");
+        }
+        else {
+            DBConnection dbConnection = DBConnection.getDBConnection();
+
+            if (dbConnection.getUser(cnic) == true) {
+
+                if(!passwordField.getText().isEmpty())
+                {
+                    if(passwordField.getText().equals(User.getUser().getPassword()))
+                    {
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profiles-view.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        //Node node = (Node) event.getSource();
+                        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(scene);
+                        stage.show();
+                    }
+                    else
+                    {
+                        promptText.setText("Incorrect Password!");
+                    }
+
+                }
+                else
+                {
+                    promptText.setText("Please Enter Password!");
+                }
+
+            }
+
+             }
+        }
+        else
+        {
+            promptText.setText("Please Enter Cnic!");
+        }
     }
+
 }

@@ -12,8 +12,10 @@ module com.example.aproj {
     requires eu.hansolo.tilesfx;
     requires java.persistence;
     requires org.hibernate.orm.core;
+    requires java.sql;
 
     opens com.example.aproj to org.hibernate.orm.core,javafx.fxml ;
 
     exports com.example.aproj;
+
 }

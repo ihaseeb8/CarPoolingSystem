@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import org.hibernate.cfg.Configuration;
 
 
 import java.io.IOException;
@@ -26,7 +25,6 @@ public class HelloController {
         LogInButton.setStyle("-fx-background-color: #F44336");
         LogInButton.setTextFill(Paint.valueOf("#FFFFFF"));
 
-        Ride ride = new Ride("das","dasdsa",123,1234,33);
 
 
     }

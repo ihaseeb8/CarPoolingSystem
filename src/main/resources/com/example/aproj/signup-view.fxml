@@ -101,6 +101,7 @@
                   <Font name="Segoe Script" size="17.0" />
                </font>
             </Button>
+            <Text fx:id="signupPrompt" fill="#e70808" fontSmoothingType="LCD" layoutX="110.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="225.33665466308594" />
             </children>
         </AnchorPane>
     </center>
