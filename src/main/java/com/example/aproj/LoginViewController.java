@@ -79,6 +79,7 @@ public class LoginViewController {
     @FXML
     void LoginButtonPressed(MouseEvent event) throws IOException {
 
+
         if(!CnicField.getText().isEmpty()){
 
         String cnic = CnicField.getText();
@@ -87,6 +88,7 @@ public class LoginViewController {
             promptText.setText("Invalid CNIC!");
         }
         else {
+
             DBConnection dbConnection = DBConnection.getDBConnection();
 
             if (dbConnection.getUser(cnic) == true) {
@@ -95,6 +97,11 @@ public class LoginViewController {
                 {
                     if(passwordField.getText().equals(User.getUser().getPassword()))
                     {
+                        DriverProfile.getDriverProfile().setDriverCnic(User.getUser().getCnic());
+                        User.getUser().setDriverProfile(DriverProfile.getDriverProfile());
+                        DBConnection.getDBConnection().getVehicles(String.valueOf(DriverProfile.getDriverProfile().getDriverCnic()));
+                        DBConnection.getDBConnection().getRides(String.valueOf(DriverProfile.getDriverProfile().getDriverCnic()));
+
                         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profiles-view.fxml"));
                         Scene scene = new Scene(fxmlLoader.load());
                         //Node node = (Node) event.getSource();

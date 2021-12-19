@@ -43,7 +43,7 @@
                         <Font name="Segoe Script" size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="RideHistoryButton" layoutX="-1.0" layoutY="389.0" mnemonicParsing="false" onMouseEntered="#onRideHistoryButtonMouseMoved" onMouseExited="#onRideHistoryButtonMouseRemoved" onMousePressed="#RideHistoryButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="Rides History">
+                <Button fx:id="MyRidesButton" layoutX="-1.0" layoutY="389.0" mnemonicParsing="false" onMouseEntered="#onMyRidesButtonMouseMoved" onMouseExited="#onMyRidesButtonMouseRemoved" onMousePressed="#MyRidesButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="My Rides">
                     <font>
                         <Font name="Segoe Script" size="17.0" />
                     </font>

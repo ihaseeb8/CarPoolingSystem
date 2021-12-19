@@ -7,6 +7,14 @@ public class Vehicle {
     private String model;
     private String make;
 
+    public Vehicle(){
+        this.vehicleId = 0;
+        this.driverCnic = 0;
+        this.name = "";
+        this.model = "";
+        this.make = "";
+    }
+
     public Vehicle(int vehicleId, int driverCnic, String carName, String model, String make) {
         this.vehicleId = vehicleId;
         this.driverCnic = driverCnic;

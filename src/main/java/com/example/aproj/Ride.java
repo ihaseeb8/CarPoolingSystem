@@ -4,23 +4,43 @@ package com.example.aproj;
 public class Ride {
 
     int rideId;
-    String dropOff;
-    String pickUp;
     int driverID;
     int passengerId;
     int vehicleId;
-    double fare;
+    int fare;
+    String dropOff;
+    String pickUp;
+    String status;
 
-    public Ride(int rideId, String dropOff, String pickUp, int driverID, int passengerId, int carID, double fare) {
-        this.rideId = rideId;
-        this.dropOff = dropOff;
-        this.pickUp = pickUp;
-        this.driverID = driverID;
-        this.passengerId = passengerId;
-        this.vehicleId = carID;
-        this.fare = fare;
+    public Ride() {
+        this.rideId = 0;
+        driverID = 0;
+        passengerId = 0;
+        vehicleId = 0;
+        fare = 0;
+        dropOff = "";
+        pickUp = "";
+        status ="notBooked";
     }
 
+    public Ride(int driverID, int vehicleId, int fare, String dropOff, String pickUp) {
+        this.rideId = 0;
+        this.driverID = driverID;
+        passengerId = 0;
+        this.vehicleId = vehicleId;
+        this.fare = fare;
+        this.dropOff = dropOff;
+        this.pickUp = pickUp;
+        this.status = "notBooked";
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public int getRideId() {
         return rideId;
@@ -70,11 +90,11 @@ public class Ride {
         this.vehicleId = vehicleId;
     }
 
-    public double getFare() {
+    public int getFare() {
         return fare;
     }
 
-    public void setFare(double fare) {
+    public void setFare(int fare) {
         this.fare = fare;
     }
 }

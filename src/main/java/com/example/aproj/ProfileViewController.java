@@ -2,6 +2,7 @@ package com.example.aproj;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,8 +11,10 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ProfileViewController {
+public class ProfileViewController implements Initializable {
 
     @FXML
     private Button DriverProfileButton;
@@ -24,6 +27,12 @@ public class ProfileViewController {
 
     @FXML
     void BackButtonPressed(MouseEvent event) throws IOException {
+
+
+            DriverProfile.getDriverProfile().deleteVehicles();
+            DriverProfile.getDriverProfile().deleteRides();
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         //Node node = (Node) event.getSource();
@@ -47,8 +56,6 @@ public class ProfileViewController {
     @FXML
     void DriverProfileButtonClicked(MouseEvent event) throws IOException {
 
-        DriverProfile.getDriverProfile().setDriverCnic(User.getUser().getCnic());
-        User.getUser().setDriverProfile(DriverProfile.getDriverProfile());
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-profile-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -90,4 +97,8 @@ public class ProfileViewController {
         PassengerProfileButton.setStyle("-fx-background-color: #BDBDBD ; -fx-background-radius : 25 ");
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

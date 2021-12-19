@@ -122,8 +122,6 @@ public class SignUpViewController {
                     }
                     else{
 
-                    User user = User.getUser();
-                    user.setCnic(cnicInt);
 
                     if(PassField.getText().isEmpty())
                     {

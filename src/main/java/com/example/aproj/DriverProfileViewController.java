@@ -1,7 +1,9 @@
 package com.example.aproj;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,8 +13,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class DriverProfileViewController {
+public class DriverProfileViewController implements Initializable {
 
     @FXML
     private Button BackButton;
@@ -27,7 +31,7 @@ public class DriverProfileViewController {
     private Button ProfileButton;
 
     @FXML
-    private Button RideHistoryButton;
+    private Button MyRidesButton;
 
     @FXML
     private Button RegisterRideButton;
@@ -36,8 +40,27 @@ public class DriverProfileViewController {
     private Text promptText;
 
     @FXML
-    void RegisterRideButtonPressed(MouseEvent event) {
+    void RegisterRideButtonPressed(MouseEvent event) throws IOException {
 
+
+        if(DriverProfile.getDriverProfile().getVehicles() == null)
+        {
+           System.out.println("haha");
+        }
+        else
+        {
+            try {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-register-ride-view.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                //Node node = (Node) event.getSource();
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            }catch (IOException e){
+                throw e;
+            }
+        }
     }
 
     @FXML
@@ -69,12 +92,24 @@ public class DriverProfileViewController {
     }
 
     @FXML
-    void ProfileButtonPressed(MouseEvent event) {
-
+    void ProfileButtonPressed(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-details-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void RideHistoryButtonPressed(MouseEvent event) {
+    void MyRidesButtonPressed(MouseEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-my-rides-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
@@ -115,7 +150,14 @@ public class DriverProfileViewController {
     }
 
     @FXML
-    void onMyVehiclesButtonPressed(MouseEvent event) {
+    void onMyVehiclesButtonPressed(MouseEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-vehicles-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
@@ -132,15 +174,21 @@ public class DriverProfileViewController {
     }
 
     @FXML
-    void onRideHistoryButtonMouseMoved(MouseEvent event) {
-        RideHistoryButton.setStyle("-fx-background-color: #F44336");
-        RideHistoryButton.setTextFill(Paint.valueOf("#FFFFFF"));
+    void onMyRidesButtonMouseMoved(MouseEvent event) {
+        MyRidesButton.setStyle("-fx-background-color: #F44336");
+        MyRidesButton.setTextFill(Paint.valueOf("#FFFFFF"));
     }
 
     @FXML
-    void onRideHistoryButtonMouseRemoved(MouseEvent event) {
-        RideHistoryButton.setStyle("-fx-background-color: #ff725e");
-        RideHistoryButton.setTextFill(Paint.valueOf("#000000"));
+    void onMyRidesButtonMouseRemoved(MouseEvent event) {
+        MyRidesButton.setStyle("-fx-background-color: #ff725e");
+        MyRidesButton.setTextFill(Paint.valueOf("#000000"));
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
+    }
 }
