@@ -1,6 +1,9 @@
 package com.example.aproj;
 
 
+//import com.example.DatabaseLayer.DBConnection;
+
+import com.example.aproj.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,7 +17,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-//import java.awt.*;
 import java.io.IOException;
 
 import static java.lang.Integer.parseInt;

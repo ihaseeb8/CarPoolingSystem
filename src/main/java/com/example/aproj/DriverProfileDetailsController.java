@@ -1,4 +1,6 @@
 package com.example.aproj;
+
+import com.example.aproj.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

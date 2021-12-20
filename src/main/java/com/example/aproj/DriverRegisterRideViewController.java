@@ -1,5 +1,6 @@
 package com.example.aproj;
 
+import com.example.aproj.HelloApplication;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

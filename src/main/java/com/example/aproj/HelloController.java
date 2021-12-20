@@ -9,7 +9,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
 
 public class HelloController {

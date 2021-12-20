@@ -1,7 +1,7 @@
 
 package com.example.aproj;
-import org.hibernate.*;
 
+import org.hibernate.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

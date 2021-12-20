@@ -1,12 +1,12 @@
 package com.example.aproj;
-import javafx.scene.control.PasswordField;
+
+
 
 import java.sql.*;
-import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
 
-class DBConnection {
+public class DBConnection {
 
     private static DBConnection obj=new DBConnection();
 

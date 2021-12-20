@@ -1,6 +1,8 @@
 package com.example.aproj;
 
-import javafx.collections.FXCollections;
+//import com.example.DatabaseLayer.DBConnection;
+
+import com.example.aproj.HelloApplication;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
