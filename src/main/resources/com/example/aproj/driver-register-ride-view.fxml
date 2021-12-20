@@ -85,6 +85,7 @@
                     </font>
                 </Button>
                 <Text fx:id="RegisterPrompt" fill="#e70808" fontSmoothingType="LCD" layoutX="134.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="225.33665466308594" />
+            <Text fx:id="fareexcep" fill="#e70808" layoutX="134.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="176.5366668701172" />
             <ComboBox fx:id="vehicleComboBox" layoutX="107.0" layoutY="347.0" prefHeight="31.0" prefWidth="231.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;" />
             </children>
         </AnchorPane>

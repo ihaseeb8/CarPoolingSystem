@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static java.lang.Integer.parseInt;
+
 public class DriverRegisterRideViewController implements Initializable {
 
     @FXML
@@ -39,6 +41,9 @@ public class DriverRegisterRideViewController implements Initializable {
     private TextField pickUpField;
 
     @FXML
+    private Text fareexcep;
+
+    @FXML
     private ComboBox<String> vehicleComboBox;
 
     @FXML
@@ -53,6 +58,8 @@ public class DriverRegisterRideViewController implements Initializable {
 
     @FXML
     void RegisterButtonPressed(MouseEvent event) {
+
+
 
         if(pickUpField.getText().isEmpty())
         {
@@ -70,7 +77,26 @@ public class DriverRegisterRideViewController implements Initializable {
         {
             RegisterPrompt.setText("No Vehicle Selected!");
         }
-        else
+
+        String fare =fareField.getText();
+
+        try{
+            int fareInt = parseInt(fare);
+            try{
+                CheckFare(fareInt);
+            }
+            catch(Exception e)
+            {
+                fareexcep.setText(e.getMessage());
+            }
+
+            if(fareInt<100)
+            {
+                CheckFare(fareInt);
+            }
+
+
+            else
         {
             RegisterPrompt.setText("Ride Registered Successfully!");
 
@@ -93,6 +119,13 @@ public class DriverRegisterRideViewController implements Initializable {
 
             System.out.println(temp);
         }
+
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getCause());
+        }
+
     }
 
     @FXML
@@ -126,5 +159,20 @@ public class DriverRegisterRideViewController implements Initializable {
         ObservableList<String> vehicles= DriverProfile.getDriverProfile().getVehiclesNames();
         vehicleComboBox.setItems(vehicles);
 
+    }
+
+
+
+    static int CheckFare(int fare) throws FareException
+    {
+            if(fare <100)
+            {
+                throw new FareException("Fare should be greater than 100");
+            }
+            else
+            {
+                System.out.println("");
+            }
+            return fare;
     }
 }

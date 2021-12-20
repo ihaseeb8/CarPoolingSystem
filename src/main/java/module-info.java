@@ -13,6 +13,7 @@ module com.example.aproj {
     requires java.persistence;
     requires org.hibernate.orm.core;
     requires java.sql;
+    requires junit;
 
     opens com.example.aproj to org.hibernate.orm.core,javafx.fxml ;
 

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -13,11 +14,14 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+//import java.awt.*;
 import java.io.IOException;
 
 import static java.lang.Integer.parseInt;
 
 public class SignUpViewController {
+
+
 
     @FXML
     private TextField CnicField;
@@ -44,9 +48,11 @@ public class SignUpViewController {
     private Button BackButton;
 
     @FXML
-    private Text signupPrompt;
+    public Text signupPrompt1;
 
 
+    @FXML
+    private Label cnexcep;
     @FXML
     void BackButtonPressed(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -86,59 +92,81 @@ public class SignUpViewController {
 
         if(NameField.getText().isEmpty())
         {
-            signupPrompt.setText("Name cannot be empty!");
+            signupPrompt1.setText("Name cannot be empty!");
         }
         else if(EmailField.getText().isEmpty())
         {
-            signupPrompt.setText("Email cannot be empty!");
+            signupPrompt1.setText("Email cannot be empty!");
         }
         else if(CnicField.getText().isEmpty())
         {
-            signupPrompt.setText("Cnic cannot be empty!");
+            signupPrompt1.setText("Cnic cannot be empty!");
         }
 
+
         String cnic = CnicField.getText();
+
 
         try {
             int cnicInt = parseInt(cnic);
 
-            if (cnicInt < 100000000 || cnicInt > 199999999) {
-                signupPrompt.setText("Invalid CNIC!");
+            try {
+                CheckCnic(cnicInt);
             }
+            catch (Exception e)
+            {
+               cnexcep.setText(e.getMessage());
+            }
+
+            if(cnicInt < 100000000 || cnicInt > 199999999)
+            {
+                CheckCnic(cnicInt);
+            }
+
+
             else
             {
                 DBConnection dbConnection = DBConnection.getDBConnection();
 
                 if(dbConnection.searchUser(cnic) == true)
                 {
-                    signupPrompt.setText("Cnic Already Registered!");
+                    signupPrompt1.setText("Cnic Already Registered!");
                 }
+
                 else
                 {
 
                     if(PhoneNoField.getText().isEmpty())
                     {
-                        signupPrompt.setText("Phone No Is Required!");
+                        signupPrompt1.setText("Phone No Is Required!");
                     }
                     else{
 
 
                     if(PassField.getText().isEmpty())
                     {
-                        signupPrompt.setText("Password Cannot Be Empty!");
+                        signupPrompt1.setText("Password Cannot Be Empty!");
                     }
                     else
                     {
                         if (PassField.getText().equals(ConfirmPassField.getText())) {
 
-                            signupPrompt.setText("You account has been registered");
+                           /* try{
+                                ConfirmPassField=CheckPassword(ConfirmPassField);
+                            }
+                            catch (Exception e)
+                            {
+                                System.out.println("Passwords are not matching "+e);
+                            }
+                            */
+                            signupPrompt1.setText("You account has been registered");
                             dbConnection.insertUser(NameField.getText(),EmailField.getText(),Integer.parseInt(CnicField.getText()),PhoneNoField.getText(),PassField.getText());
 
                         }
                         else
                         {
 
-                            signupPrompt.setText("Passwords are not matching!");
+                            signupPrompt1.setText("Passwords are not matching!");
 
                             System.out.println(PassField.getText());
 
@@ -150,7 +178,7 @@ public class SignUpViewController {
 
                 }}
 
-            }
+           }
 
         }
         catch(Exception e)
@@ -159,4 +187,20 @@ public class SignUpViewController {
         }
 
     }
+
+   static int CheckCnic(int cnic) throws CnicException
+    {
+        if (cnic < 100000000 || cnic > 199999999)
+        {
+            throw new CnicException("Invalid CNIC");
+        }
+        else {
+         System.out.println("");
+        }
+        return cnic;
+    }
+
+
+
+
 }

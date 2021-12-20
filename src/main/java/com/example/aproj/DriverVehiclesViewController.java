@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static java.lang.Integer.parseInt;
+
 public class DriverVehiclesViewController implements Initializable {
 
     @FXML
@@ -60,11 +62,14 @@ public class DriverVehiclesViewController implements Initializable {
     private Text registerPrompt;
 
     @FXML
+    private Text vehcexcep;
+
+    @FXML
     void BackButtonPressed(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-profile-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         //Node node = (Node) event.getSource();
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -85,36 +90,50 @@ public class DriverVehiclesViewController implements Initializable {
     @FXML
     void RegisterButtonPressed(MouseEvent event) {
 
-        if(VehicleIdField.getText().isEmpty())
-        {
+        if (VehicleIdField.getText().isEmpty()) {
             registerPrompt.setText("Vehicle Id Missing!");
-        }
-        else if(NameField.getText().isEmpty())
-        {
+        } else if (NameField.getText().isEmpty()) {
             registerPrompt.setText("Vehicle Name Missing!");
-        }
-        else if(ModelField.getText().isEmpty())
-        {
+        } else if (ModelField.getText().isEmpty()) {
             registerPrompt.setText("Vehicle Model Missing!");
-        }
-        else if(MakeField.getText().isEmpty())
-        {
+        } else if (MakeField.getText().isEmpty()) {
             registerPrompt.setText("Vehicle Make Missing!");
         }
-        else
-        {
-            boolean a = DBConnection.getDBConnection().searchVehicle(VehicleIdField.getText());
 
-            if(a)
-            {
-                registerPrompt.setText("Vehicle Id already Registered!");
+        String vehicle1 = MakeField.getText();
+        //int fareInt = parseInt(fare);
+        try {
+            int vehicleInt = parseInt(vehicle1);
+            try{
+                CheckVehicle(vehicleInt);
             }
-            else
+            catch (Exception e)
             {
-                registerPrompt.setText("Vehicle Registered Successfully!");
-                Vehicle vehicle = new Vehicle(Integer.valueOf(VehicleIdField.getText()) , DriverProfile.getDriverProfile().getDriverCnic(), NameField.getText(),ModelField.getText(),MakeField.getText());
-                DriverProfile.getDriverProfile().addVehicle(vehicle);
+                vehcexcep.setText(e.getMessage());
             }
+
+            if (vehicleInt == 2000 || vehicleInt == 2001 || vehicleInt == 2002 || vehicleInt == 2003 ||vehicleInt == 2004 || vehicleInt == 2005 || vehicleInt == 2006 || vehicleInt == 2007 ||
+                    vehicleInt == 2008 || vehicleInt == 2009 || vehicleInt == 2010 || vehicleInt == 2011 || vehicleInt == 2012 ||vehicleInt == 2013 || vehicleInt == 2014 || vehicleInt == 2015 ||
+                    vehicleInt == 2016 || vehicleInt == 2017 ||vehicleInt == 2018 || vehicleInt== 2019 ||vehicleInt == 2020)
+            {
+                CheckVehicle(vehicleInt);
+            }
+
+        else
+            {
+                boolean a = DBConnection.getDBConnection().searchVehicle(VehicleIdField.getText());
+
+                if (a) {
+                    registerPrompt.setText("Vehicle Id already Registered!");
+                } else {
+                    registerPrompt.setText("Vehicle Registered Successfully!");
+                    Vehicle vehicle = new Vehicle(Integer.valueOf(VehicleIdField.getText()), DriverProfile.getDriverProfile().getDriverCnic(), NameField.getText(), ModelField.getText(), MakeField.getText());
+                    DriverProfile.getDriverProfile().addVehicle(vehicle);
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getCause());
         }
     }
 
@@ -132,12 +151,9 @@ public class DriverVehiclesViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(DriverProfile.getDriverProfile().getVehicles() == null)
-        {
+        if (DriverProfile.getDriverProfile().getVehicles() == null) {
             System.out.println("haha");
-        }
-        else
-        {
+        } else {
             ObservableList<Vehicle> data = DriverProfile.getDriverProfile().getVehicles();
 
             VehicleIdCol.setCellValueFactory(new PropertyValueFactory<>("vehicleId"));
@@ -149,4 +165,21 @@ public class DriverVehiclesViewController implements Initializable {
 
         }
     }
+
+    static int CheckVehicle(int vehicleInt) throws VehicleException {
+        if (vehicleInt == 2000 || vehicleInt == 2001 || vehicleInt == 2002 || vehicleInt == 2003 ||vehicleInt == 2004 || vehicleInt == 2005 || vehicleInt == 2006 || vehicleInt == 2007 ||
+                vehicleInt == 2008 || vehicleInt == 2009 || vehicleInt == 2010 || vehicleInt == 2011 || vehicleInt == 2012 ||vehicleInt == 2013 || vehicleInt == 2014 || vehicleInt == 2015 ||
+                vehicleInt == 2016 || vehicleInt == 2017 ||vehicleInt == 2018 || vehicleInt== 2019 ||vehicleInt == 2020) {
+
+        throw new VehicleException("Make Should Be Toyota or Something Else");
+
+
+    }
+    else
+
+    {
+        System.out.println("");
+    }
+    return vehicleInt;
+}
 }

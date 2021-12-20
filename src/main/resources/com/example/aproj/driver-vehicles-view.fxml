@@ -85,6 +85,7 @@
                </font>
             </Text>
             <Text fx:id="registerPrompt" fill="#e70808" fontSmoothingType="LCD" layoutX="308.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="225.33665466308594" />
+            <Text fx:id="vehcexcep" layoutX="322.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="176.5367431640625" />
             </children>
         </AnchorPane>
     </bottom>

@@ -1,4 +1,6 @@
 package com.example.aproj;
+import javafx.scene.control.PasswordField;
+
 import java.sql.*;
 import java.util.Objects;
 
@@ -23,7 +25,7 @@ class DBConnection {
             System.out.println("Driver Loaded Successfully!");
             //step2 create  the connection object
             Connection con=DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/mysql","root","tiger");
+                    "jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
 
             System.out.println("Connection Established!");
 
@@ -72,7 +74,7 @@ class DBConnection {
             System.out.println("Driver Loaded Successfully!");
                 //step2 create  the connection object
             Connection con=DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/mysql","root","tiger");
+                    "jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
 
             System.out.println("Connection Established!");
 
@@ -121,7 +123,7 @@ class DBConnection {
             System.out.println("Driver Loaded Successfully!");
             //step2 create  the connection object
             Connection con=DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/mysql","root","tiger");
+                    "jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
 
             System.out.println("Connection Established!");
 
@@ -171,7 +173,7 @@ class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver Loaded Successfully!");
             //step2 create  the connection object
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
             System.out.println("Connection Established!");
 
             String sql = "SELECT * FROM ap.vehicles WHERE driverCnic = ?";
@@ -218,7 +220,7 @@ class DBConnection {
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver Loaded Successfully!");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
             System.out.println("Connection Established!");
             String sql = "SELECT rideId FROM ap.ride";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -252,7 +254,7 @@ class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver Loaded Successfully!");
             //step2 create  the connection object
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
             System.out.println("Connection Established!");
 
             String sql = "SELECT * FROM ap.ride WHERE driverId = ?";
@@ -305,7 +307,7 @@ class DBConnection {
 
             //step2 create  the connection object
             Connection con=DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/mysql","root","tiger");
+                    "jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
 
             System.out.println("Connection Established!");
 
@@ -351,7 +353,7 @@ class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver Loaded Successfully!");
             //step2 create  the connection object
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
             System.out.println("Connection Established!");
 
             String sql = "INSERT INTO ap.vehicles(vehicleId,driverCnic,name,model,make) VALUES (? , ? , ? , ? , ?) ";
@@ -393,7 +395,7 @@ class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver Loaded Successfully!");
             //step2 create  the connection object
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","flabbergast456");
             System.out.println("Connection Established!");
 
             String sql = "INSERT INTO ap.ride(driverId, dropOff, pickUp, status , fare , vehicleId) VALUES (? , ? , ? , ? , ? , ?) ";
