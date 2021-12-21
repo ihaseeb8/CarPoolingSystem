@@ -26,7 +26,8 @@ module com.example.aproj {
     opens com.example.aproj.Exceptions to javafx.fxml;
     exports com.example.aproj.Classes;
     opens com.example.aproj.Classes to javafx.fxml;
-
+    exports com.example.aproj.TestCases;
+    opens com.example.aproj.TestCases to javafx.fxml;
 
 
 }

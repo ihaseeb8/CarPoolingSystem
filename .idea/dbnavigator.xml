@@ -24,7 +24,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="5fbee774-c502-43ee-9377-10a1fa5acfe7">
+        <schema name="ap" object-types="table, view, procedure, function, constraint, index, column, dataset trigger" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="5fbee774-c502-43ee-9377-10a1fa5acfe7">
@@ -74,7 +78,7 @@
           <config-type value="BASIC" />
           <database-version value="8.0" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="C:\mysql-connector-java-8.0.27.jar" />
+          <driver-library value="C:\Users\Zainab\Downloads\mysql-connector-java-8.0.27\mysql-connector-java-8.0.27.jar" />
           <driver value="com.mysql.cj.jdbc.Driver" />
           <url-type value="DATABASE" />
           <host value="localhost" />
@@ -82,7 +86,7 @@
           <database value="mysql" />
           <type value="USER_PASSWORD" />
           <user value="root" />
-          <deprecated-pwd value="ZmxhYmJlcmdhc3Q0NTY=" />
+          <deprecated-pwd value="MTIzNDU2" />
         </database>
         <properties>
           <auto-commit value="false" />
