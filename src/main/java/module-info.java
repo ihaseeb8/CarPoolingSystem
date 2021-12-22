@@ -14,6 +14,7 @@ module com.example.aproj {
     requires org.hibernate.orm.core;
     requires java.sql;
     requires junit;
+    requires java.desktop;
 
     opens com.example.aproj to org.hibernate.orm.core,javafx.fxml ;
 

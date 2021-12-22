@@ -4,6 +4,8 @@ package com.example.aproj.Controllers;
 import com.example.aproj.DBHandlers.DBConnection;
 import com.example.aproj.Exceptions.CnicException;
 import com.example.aproj.HelloApplication;
+import com.example.aproj.SoundThreads.TaskErrorSound;
+import com.example.aproj.SoundThreads.TaskSuccessSound;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,6 +23,9 @@ import java.io.IOException;
 import static java.lang.Integer.parseInt;
 
 public class SignUpViewController {
+
+    TaskSuccessSound ts = new TaskSuccessSound();
+    TaskErrorSound te = new TaskErrorSound();
 
     @FXML
     private TextField CnicField;
@@ -93,14 +98,23 @@ public class SignUpViewController {
 
         if(NameField.getText().isEmpty())
         {
+            //sound
+            te.run();
+
             signupPrompt.setText("Name cannot be empty!");
         }
         else if(EmailField.getText().isEmpty())
         {
+            //sound
+            te.run();
+
             signupPrompt.setText("Email cannot be empty!");
         }
         else if(CnicField.getText().isEmpty())
         {
+            //sound
+            te.run();
+
             signupPrompt.setText("Cnic cannot be empty!");
         }
 
@@ -131,6 +145,9 @@ public class SignUpViewController {
 
                 if(dbConnection.searchUser(cnic) == true)
                 {
+                    //sound
+                    te.run();
+
                     signupPrompt.setText("Cnic Already Registered!");
                 }
                 else
@@ -138,6 +155,9 @@ public class SignUpViewController {
 
                     if(PhoneNoField.getText().isEmpty())
                     {
+                        //sound
+                        te.run();
+
                         signupPrompt.setText("Phone No Is Required!");
                     }
                     else{
@@ -145,17 +165,25 @@ public class SignUpViewController {
 
                     if(PassField.getText().isEmpty())
                     {
+                        //sound
+                        te.run();
+
                         signupPrompt.setText("Password Cannot Be Empty!");
                     }
                     else
                     {
                         if (PassField.getText().equals(ConfirmPassField.getText())) {
 
+                            //sound
+                            ts.run();
+
                             dbConnection.insertUser(NameField.getText(),EmailField.getText(),Integer.parseInt(CnicField.getText()),PhoneNoField.getText(),PassField.getText());
                             signupPrompt.setText("You account has been registered");
                         }
                         else
                         {
+                            //sound
+                            te.run();
 
                             signupPrompt.setText("Passwords are not matching!");
 

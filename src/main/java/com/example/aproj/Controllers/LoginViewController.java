@@ -5,6 +5,8 @@ import com.example.aproj.Classes.PassengerProfile;
 import com.example.aproj.Classes.User;
 import com.example.aproj.DBHandlers.DBConnection;
 import com.example.aproj.HelloApplication;
+import com.example.aproj.SoundThreads.TaskErrorSound;
+import com.example.aproj.SoundThreads.TaskSuccessSound;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,6 +24,9 @@ import java.io.IOException;
 import static java.lang.Integer.parseInt;
 
 public class LoginViewController {
+
+    TaskSuccessSound ts = new TaskSuccessSound();
+    TaskErrorSound te = new TaskErrorSound();
 
     @FXML
     private TextField CnicField;
@@ -89,6 +94,10 @@ public class LoginViewController {
         String cnic = CnicField.getText();
         int cnicInt = parseInt(cnic);
         if (cnicInt < 100000000 || cnicInt > 199999999) {
+
+            //error sound
+            te.run();
+
             promptText.setText("Invalid CNIC!");
         }
         else {
@@ -101,6 +110,9 @@ public class LoginViewController {
                 {
                     if(passwordField.getText().equals(User.getUser().getPassword()))
                     {
+                        //play sound
+                        ts.run();
+
                         DriverProfile.getDriverProfile().setDriverCnic(User.getUser().getCnic());
                         User.getUser().setDriverProfile(DriverProfile.getDriverProfile());
                         DBConnection.getDBConnection().getVehicles(String.valueOf(DriverProfile.getDriverProfile().getDriverCnic()));
@@ -120,12 +132,18 @@ public class LoginViewController {
                     }
                     else
                     {
+                        //error sound
+                        te.run();
+
                         promptText.setText("Incorrect Password!");
                     }
 
                 }
                 else
                 {
+                    //error sound
+                    te.run();
+
                     promptText.setText("Please Enter Password!");
                 }
 
@@ -135,6 +153,9 @@ public class LoginViewController {
         }
         else
         {
+            //error sound
+            te.run();
+
             promptText.setText("Please Enter Cnic!");
         }
     }

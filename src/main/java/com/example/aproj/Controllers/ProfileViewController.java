@@ -26,7 +26,22 @@ public class ProfileViewController implements Initializable {
     private Button PassengerProfileButton;
 
     @FXML
+    private Button FeedbackButton;
+
+    @FXML
     private Button BackButton;
+
+    @FXML
+    void FeedbackButtonClicked(MouseEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("FXMLFiles/feedback-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
     @FXML
     void BackButtonPressed(MouseEvent event) throws IOException {

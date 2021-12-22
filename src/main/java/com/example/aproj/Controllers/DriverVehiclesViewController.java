@@ -111,27 +111,7 @@ public class DriverVehiclesViewController implements Initializable {
         {
             registerPrompt.setText("Vehicle Make Missing!");
         }
-
-        String vehicle1 = MakeField.getText();
-        //int fareInt = parseInt(fare);
-        try {
-            int vehicleInt = parseInt(vehicle1);
-            try{
-                CheckVehicle(vehicleInt);
-            }
-            catch (Exception e)
-            {
-                vehicleexcep.setText(e.getMessage());
-            }
-
-            if (vehicleInt == 2000 || vehicleInt == 2001 || vehicleInt == 2002 || vehicleInt == 2003 ||vehicleInt == 2004 || vehicleInt == 2005 || vehicleInt == 2006 || vehicleInt == 2007 ||
-                    vehicleInt == 2008 || vehicleInt == 2009 || vehicleInt == 2010 || vehicleInt == 2011 || vehicleInt == 2012 ||vehicleInt == 2013 || vehicleInt == 2014 || vehicleInt == 2015 ||
-                    vehicleInt == 2016 || vehicleInt == 2017 ||vehicleInt == 2018 || vehicleInt== 2019 ||vehicleInt == 2020)
-            {
-                CheckVehicle(vehicleInt);
-            }
-
-            else
+        else
         {
             boolean a = DBConnection.getDBConnection().searchVehicle(VehicleIdField.getText());
 
@@ -145,9 +125,6 @@ public class DriverVehiclesViewController implements Initializable {
                 Vehicle vehicle = new Vehicle(Integer.valueOf(VehicleIdField.getText()) , DriverProfile.getDriverProfile().getDriverCnic(), NameField.getText(),ModelField.getText(),MakeField.getText());
                 DriverProfile.getDriverProfile().addVehicle(vehicle);
             }
-        }
-        } catch (Exception e) {
-            System.out.println(e.getCause());
         }
     }
 
